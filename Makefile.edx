@@ -28,7 +28,7 @@ whitelabel-tests:
 	docker exec -t devstack.whitelabel env TEST_ENV=devstack TERM=$(TERM) bash /tmp/run_whitelabel_tests.sh
 
 whitelabel-cleanup:
-	docker rm --force devstack.whitelabel
+	docker-compose rm --force devstack.whitelabel
 
 whitelabel-shell: ## Start a whitelabel test shell session
-	docker exec -it devstack.whitelabel env TERM=$(TERM) bash
+	docker-compose exec -it devstack.whitelabel env TERM=$(TERM) bash
