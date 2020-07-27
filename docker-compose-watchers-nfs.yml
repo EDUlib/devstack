@@ -8,6 +8,10 @@ services:
       BOK_CHOY_HOSTNAME: edx.devstack.lms_watcher
       ASSET_WATCHER_TIMEOUT: 12
     image: edxops/edxapp:${OPENEDX_RELEASE:-latest}
+    networks:
+      default:
+        aliases:
+          - edx.devstack.lms_watcher
     volumes:
       - edx-nfs:/edx/app/edxapp/edx-platform
       - edxapp_lms_assets:/edx/var/edxapp/staticfiles/
@@ -26,6 +30,10 @@ services:
       BOK_CHOY_HOSTNAME: edx.devstack.studio_watcher
       ASSET_WATCHER_TIMEOUT: 12
     image: edxops/edxapp:${OPENEDX_RELEASE:-latest}
+    networks:
+      default:
+        aliases:
+          - edx.devstack.studio_watcher
     volumes:
       - edxapp_studio_assets:/edx/var/edxapp/staticfiles/
       - edx-nfs:/edx/app/edxapp/edx-platform
