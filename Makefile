@@ -331,7 +331,7 @@ dev.restart-container.%: ## Restart specific services' containers.
 
 dev.stop: ## Stop all running services.
 	(test -d .docker-sync && docker-sync stop) || true ## Ignore failure here
-	docker-compose stop
+	docker-compose $(DOCKER_COMPOSE_FILES) stop
 
 dev.stop.%: ## Stop specific services.
 	docker-compose stop $$(echo $* | tr + " ")
