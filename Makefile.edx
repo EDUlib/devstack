@@ -31,4 +31,4 @@ whitelabel-cleanup:
 	docker-compose rm --force devstack.whitelabel
 
 whitelabel-shell: ## Start a whitelabel test shell session
-	docker-compose exec -it devstack.whitelabel env TERM=$(TERM) bash
+	docker-compose $(DOCKER_COMPOSE_FILES) exec -it devstack.whitelabel env TERM=$(TERM) bash
