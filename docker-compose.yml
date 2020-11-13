@@ -135,7 +135,7 @@ services:
         aliases:
           - edx.devstack.mysql
     # ports:
-    #    - "3506:3306"
+    #   - "3506:3306"
     volumes:
       - mysql_data:/var/lib/mysql
 
@@ -160,10 +160,6 @@ services:
     container_name: "edx.${COMPOSE_PROJECT_NAME:-devstack}.redis"
     hostname: redis.devstack.edx
     image: redis:2.8
-    networks:
-      default:
-        aliases:
-          - edx.devstack.redis
     command: redis-server --requirepass password
     networks:
       default:
@@ -483,7 +479,6 @@ services:
       - ecommerce
 
   frontend-app-publisher:
-    container_name: "edx.${COMPOSE_PROJECT_NAME:-devstack}.frontend-app-publisher"
     extends:
       file: microfrontend.yml
       service: microfrontend
@@ -499,7 +494,6 @@ services:
       - lms
 
   gradebook:
-    container_name: "edx.${COMPOSE_PROJECT_NAME:-devstack}.gradebook"
     extends:
       file: microfrontend.yml
       service: microfrontend
@@ -515,7 +509,6 @@ services:
       - lms
 
   program-console:
-    container_name: "edx.${COMPOSE_PROJECT_NAME:-devstack}.program-console"
     extends:
       file: microfrontend.yml
       service: microfrontend
