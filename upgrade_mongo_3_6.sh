@@ -46,8 +46,6 @@ echo -e "${GREEN}Restarting Mongo on version ${MONGO_VERSION}${NC}"
 make dev.up.mongo
 mongo_container="$(make -s dev.print-container.mongo)"
 
-mongo_container="$(make -s dev.print-container.mongo)"
-
 echo -e "${GREEN}Waiting for MongoDB...${NC}"
 until docker exec "$mongo_container" mongo --eval 'db.serverStatus()' &> /dev/null
 do
